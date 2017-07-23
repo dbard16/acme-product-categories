@@ -5,7 +5,7 @@
   </head>
 
 
-  <div class = 'page-header'>Acme Product Categories</div>
+  <div class = 'page-header'>Acme Product Categories - Click a Product for a GIF Search!</div>
 
 
 
@@ -34,7 +34,7 @@
 
     {% for product in products %}
       <tr>
-        <td> {{product.name}} </td>
+        <td><a href = 'https://giphy.com/search/{{product.name}}' target="_blank"> {{product.name}} </a></td>
         <td>
           <form action ='/categories/{{nav}}/products/{{product.id}}?_method=DELETE' method = 'POST'>
             <button class= 'btn btn-danger'>Delete</button>
