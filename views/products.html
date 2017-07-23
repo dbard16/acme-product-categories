@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <link rel='stylesheet' href = '/vendor/bootstrap/dist/css/bootstrap.css'>
+    <link rel='stylesheet' href = '/css/mystyle.css'>
+  </head>
+
+
+  <div class = 'page-header'>Acme Product Categories</div>
+
+
+
+  <body class = 'well'>
+    <nav class="navbar navbar-default">
+
+
+      <ul class="nav navbar-nav">
+        <li class><a href="/">Home</a></li>
+      {% for cats in categories%}
+
+        <li {% if nav === cats %} class="active" {% endif %}><a href="/categories/{{cats}}/products">{{cats}}</a></li>
+      {% endfor %}
+      </ul>
+    </nav>
+
+    <form action="/categories/{{nav}}/products" method="POST">
+      <div class="form-group">
+        <input class="form-control" name = "product" placeholder="product" />
+
+        <button class = 'btn btn-primary'>Add </button>
+      </div>
+    </form>
+
+    <table class = "table table-striped">
+
+    {% for product in products %}
+      <tr>
+        <td> {{product.name}} </td>
+        <td>
+          <form action ='/categories/{{nav}}/products/{{product.id}}?_method=DELETE' method = 'POST'>
+            <button class= 'btn btn-danger'>Delete</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+
+    </table>
+
+    <form action ='/categories/{{nav}}/?_method=DELETE' method = 'POST'>
+      <button class= 'btn btn-danger'>Delete Category</button>
+    </form>
+
+
+  </body>
+
+
+
+
+
+
+
+
+
+</html>
