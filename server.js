@@ -26,9 +26,9 @@ app.use('/', routes);
 
 
 //a
-// app.use(function(err, req, res, next){
-//   res.render('error', {error:err});
-// });
+app.use(function(err, req, res, next){
+  res.render('error', {error:err});
+});
 
 
 //listening to port

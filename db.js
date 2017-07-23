@@ -16,7 +16,9 @@ function getProdsByCat(cat){
 }
 
 function createProd(prod, cat){
-
+if(!prod){
+  throw 'Please enter a product!';
+}
   var maxID = data[cat].reduce(function(max, product){
     if(product.id >max){
       max = product.id;
@@ -39,6 +41,9 @@ data[cat] = data[cat].filter(function(product){
 }
 
 function createCat(cat){
+  if(!cat){
+    throw 'Please enter a Category!';
+  }
   data[cat] = [];
 }
 
