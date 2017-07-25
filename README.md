@@ -1,2 +1,2 @@
 NPM install
-https://dan-acme-project.herokuapp.com/
+https://dan-acme-product-categories.herokuapp.com/
